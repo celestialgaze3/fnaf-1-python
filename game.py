@@ -14,7 +14,7 @@ class Game:
             "Chica": 20,
             "Foxy": 20
         }
-        
+
         self.night = 7
 
         self.state.initialize()

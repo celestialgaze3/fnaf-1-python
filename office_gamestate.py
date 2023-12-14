@@ -8,6 +8,7 @@ from camera import Camera
 from clock import Clock
 from text import Text
 import room
+import sys
 
 
 class OfficeGameState(GameState):
@@ -103,9 +104,17 @@ class OfficeGameState(GameState):
     def increment_hour(self):
         self.hour += 1
         self.clock.set_hour(self.hour)
+        if (self.hour == 6):
+            print(f"You win with {self.power}% power remaining")
+            pygame.display.quit()
+            pygame.quit()
+            sys.exit()
 
     def end_game(self, animatronic):
         print(f"{animatronic.name} reached the office. Game over!")
+        pygame.display.quit()
+        pygame.quit()
+        sys.exit()
 
     def exit(self):
         GameState.exit(self)
